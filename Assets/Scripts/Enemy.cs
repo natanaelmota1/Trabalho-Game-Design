@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     public int life = 1;
+    public bool lookLeft; // INDICA SE O PERSONAGEM TA OLHANDO PRA ESQUERDA
     
     void Start()
     {
@@ -26,11 +27,12 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject, 0.01f);
         }
+        print(direction);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Laser"))
+        if(collision.CompareTag("Flecha"))
         {
             life -= 1;
         }
@@ -39,8 +41,8 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle - 90f;
+            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // rb.rotation = angle - 90f;
             direction.Normalize();
             movement = direction;
         }
@@ -50,5 +52,21 @@ public class Enemy : MonoBehaviour
     }
     void moveCharacter(Vector2 direction){
         rb.MovePosition((Vector2)transform.position + (direction * (moveSpeed * Time.deltaTime)));
+        if (direction.x > 0 && lookLeft)
+        {
+            flip();
+        }
+        else if (direction.x < 0 && !lookLeft)
+        {
+            flip();
+        }
+    }
+    
+    void flip()
+    {
+        lookLeft = !lookLeft; //inverte valor da variável boleana
+        float x = transform.localScale.x;
+        x *= -1;
+        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
     }
 }

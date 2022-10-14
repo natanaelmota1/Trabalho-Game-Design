@@ -8,10 +8,10 @@ public class Player : MonoBehaviour
     private Animator playerAnimator;
     private Rigidbody2D playerRb;
     private float moveLimiter = 0.7f;
-
     
     public float speed;
     
+    private Vector2 lookDirection;
     public bool lookLeft; // INDICA SE O PERSONAGEM TA OLHANDO PRA ESQUERDA
     private float h, v; // VARIÁVEIS MOVIMENTO HORIZONTAL E VERTICAL
 
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         Move();
     }
 
@@ -41,11 +42,11 @@ public class Player : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
-        if (h > 0 && lookLeft)
+        if (lookDirection.x > 0 && lookLeft)
         {
             flip();
         }
-        else if (h < 0 && !lookLeft)
+        else if (lookDirection.x < 0 && !lookLeft)
         {
             flip();
         }
