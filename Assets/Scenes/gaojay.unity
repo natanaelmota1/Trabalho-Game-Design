@@ -149,8 +149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339407730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.53, y: -5.79, z: 0}
+  m_LocalScale: {x: 1.306, y: 1.6468661, z: 1.3064}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1540391884}
@@ -543,7 +543,7 @@ MonoBehaviour:
   swingtick: 0
   swingtimer: 0.2
   swingspeed: 1.25
-  cooldown: 0
+  cooldown: 0.5
   cooldownTick: 0
   lookLeft: 0
   attacking: 0
