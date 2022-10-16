@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject, 0.01f);
         }
-        print(direction);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
