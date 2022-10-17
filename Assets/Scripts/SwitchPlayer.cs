@@ -9,6 +9,7 @@ public class SwitchPlayer : MonoBehaviour
     
     private int characterAtual;
     private GameObject character;
+    private GameObject player;
     
     
     // Start is called before the first frame update
@@ -21,14 +22,14 @@ public class SwitchPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = character.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
+        transform.position = player.transform.position;
         tick += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse1) && tick >= cooldown)
         {
             switchCharacter();
             Destroy(character, 0);
             character = Instantiate(characters[characterAtual], transform.position, transform.rotation);
-            
             tick = 0;
         }
     }
