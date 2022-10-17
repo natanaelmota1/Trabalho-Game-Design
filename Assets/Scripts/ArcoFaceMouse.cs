@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArcoFaceMouse : MonoBehaviour
 {
-
+    public float tick, cooldown;
     [SerializeField] private Transform barrelTip;
     [SerializeField] private GameObject bullet;
 
@@ -16,10 +16,12 @@ public class ArcoFaceMouse : MonoBehaviour
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
-
-        if (Input.GetMouseButtonDown(0))
+        
+        tick += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && tick >= cooldown)
         {
             FireBullet();
+            tick = 0;
         }
     }
 

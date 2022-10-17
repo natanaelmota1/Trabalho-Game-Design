@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7279340632741164245}
   m_Layer: 0
   m_Name: ExplosionBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 2147483647
-  m_ForceMagnitude: 50
+  m_ForceMagnitude: 100
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_ForceSource: 0

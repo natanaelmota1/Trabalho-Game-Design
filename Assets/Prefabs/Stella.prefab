@@ -100,7 +100,7 @@ MonoBehaviour:
   barrelTip: {fileID: 1630401662850300507}
   bullet: {fileID: 6518566693115655760, guid: e3385c6792df5074e981f3c088a5b522, type: 3}
   tick: 0
-  cooldown: 0.5
+  cooldown: 0.7
 --- !u!1 &1630401663608797848
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630401663608797848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4166, y: 1.5866, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.21355821, y: 0.21355821, z: 0.21355821}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -214,8 +214,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.70896953
+  m_UseAutoMass: 0
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
