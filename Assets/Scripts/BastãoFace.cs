@@ -30,17 +30,17 @@ public class BastãoFace : MonoBehaviour
 
         bastao.position = new Vector3(player.transform.position.x + xPos, player.transform.position.y - 0.35f, player.transform.position.z);
 
-        if (lookDirection.x > 0)
+        if (lookDirection.x > 0 && lookLeft)
         {
             addedRot = -50f;
-            lookLeft = false;
             xPos = -0.25f;
+            lookLeft = !lookLeft; 
         }
-        else if (lookDirection.x < 0)
+        else if (lookDirection.x < 0 && !lookLeft)
         {
             addedRot = -130f;
-            lookLeft = true;
             xPos = 0.25f;
+            lookLeft = !lookLeft;
         }
 
         if(!attacking)
@@ -86,9 +86,12 @@ public class BastãoFace : MonoBehaviour
         
     }
 
-    private void Attack()
+    void flip()
     {
-        
+        lookLeft = !lookLeft; //inverte valor da variável boleana
+        float x = transform.localScale.x;
+        x *= -1;
+        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
     }
 
 }

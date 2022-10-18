@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private Animator playerAnimator;
     private Rigidbody2D playerRb;
     private float moveLimiter = 0.7f;
-    
+
     public float speed;
     
     private Vector2 lookDirection;
