@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         if(collision.CompareTag("Flecha"))
         {
             enemyAnimator.SetTrigger("hit");
-            life -= 2;
+            life -= 3;
         }
         if(collision.CompareTag("Bomb"))
         {
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
         if(collision.CompareTag("Melee"))
         {
             enemyAnimator.SetTrigger("hit");
-            life -= 10;
+            life -= 7;
         }
     }
 }

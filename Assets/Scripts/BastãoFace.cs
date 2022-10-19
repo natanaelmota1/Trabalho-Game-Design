@@ -25,10 +25,10 @@ public class BastãoFace : MonoBehaviour
 
     void Update()
     {
-        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - bastao.transform.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        bastao.position = new Vector3(player.transform.position.x + xPos, player.transform.position.y - 0.35f, player.transform.position.z);
+        bastao.position = new Vector3(player.transform.position.x + xPos, player.transform.position.y - 0.45f, player.transform.position.z);
 
         if (lookDirection.x > 0 && lookLeft)
         {
@@ -83,7 +83,6 @@ public class BastãoFace : MonoBehaviour
                 bastaoCol.enabled = true;
             }
         }
-        
     }
 
     void flip()
