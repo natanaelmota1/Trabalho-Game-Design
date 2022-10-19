@@ -7,6 +7,8 @@ TagManager:
   - Flecha
   - Bomb
   - Melee
+  - Lacaio
+  - Boss
   layers:
   - Default
   - TransparentFX

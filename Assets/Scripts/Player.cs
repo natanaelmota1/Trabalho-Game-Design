@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>(); // ASSOCIA O COMPONENTE A VARIÁVEL
         cameraTransform = GameObject.FindWithTag("MainCamera").GetComponent<Transform>();
+        
     }
 
     void FixedUpdate()
@@ -61,5 +62,13 @@ public class Player : MonoBehaviour
         float x = transform.localScale.x;
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("Lacaio"))
+        {
+            GameController.instance.UpdateVida(7);
+        }
     }
 }
