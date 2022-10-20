@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    GameObject player;
+    private GameObject player;
     private float moveSpeed = 1f;
     private Rigidbody2D rb;
     private Animator enemyAnimator;
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         if(collision.CompareTag("Flecha"))
         {
             enemyAnimator.SetTrigger("hit");
-            life -= 3;
+            life -= 4;
         }
         if(collision.CompareTag("Bomb"))
         {

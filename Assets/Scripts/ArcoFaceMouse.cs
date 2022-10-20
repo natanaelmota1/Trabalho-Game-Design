@@ -28,7 +28,7 @@ public class ArcoFaceMouse : MonoBehaviour
     private void FireBullet()
     {
         GameObject fireBullet = Instantiate(bullet, barrelTip.position, barrelTip.rotation);
-        fireBullet.GetComponent<Rigidbody2D>().velocity = barrelTip.up * 10f;
+        fireBullet.GetComponent<Rigidbody2D>().velocity = barrelTip.up * 20f;
         Destroy(fireBullet, 1f);
     }
 }

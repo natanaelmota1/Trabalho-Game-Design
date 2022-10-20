@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3320413155729375668}
   - component: {fileID: 3320413155729375669}
-  - component: {fileID: 3320413155729375665}
   - component: {fileID: 3320413155729375670}
   - component: {fileID: 3320413155729375664}
   - component: {fileID: 3320413155729375667}
-  m_Layer: 0
+  - component: {fileID: 863039647647584108}
+  - component: {fileID: 7008208493724674426}
+  m_Layer: 7
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3320413155729375674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.72, y: -0.20239, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.526757, y: 0.526757, z: 0.526757}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3320413155729375665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3320413155729375674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa98c1dbc427e3246b4559770a4ff5d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 500
-  lookLeft: 0
 --- !u!50 &3320413155729375670
 Rigidbody2D:
   serializedVersion: 4
@@ -153,9 +140,43 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.1199994
+--- !u!114 &863039647647584108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320413155729375674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42524de299fa4e48809cf2f16ad5faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 200
+  lookLeft: 0
+--- !u!250 &7008208493724674426
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320413155729375674}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 65
+  m_ForceMagnitude: 500
+  m_ForceVariation: 50
+  m_DistanceScale: 1
+  m_ForceSource: 0
+  m_ForceTarget: 0
+  m_ForceMode: 0
+  m_Drag: 0
+  m_AngularDrag: 0

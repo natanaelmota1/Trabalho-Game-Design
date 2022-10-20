@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Transform cameraTransform;
 
     public float speed;
-    
+
     private Vector2 lookDirection;
     public bool lookLeft; // INDICA SE O PERSONAGEM TA OLHANDO PRA ESQUERDA
     private float h, v; // VARIÁVEIS MOVIMENTO HORIZONTAL E VERTICAL
@@ -64,11 +64,19 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (col.collider.CompareTag("Lacaio"))
+        if (collision.CompareTag("Lacaio"))
         {
             GameController.instance.UpdateVida(7);
+        }
+        if (collision.CompareTag("Boss"))
+        {
+            GameController.instance.UpdateVida(14);
+        }
+        if (collision.CompareTag("Bomb"))
+        {
+            GameController.instance.UpdateVida(2);
         }
     }
 }

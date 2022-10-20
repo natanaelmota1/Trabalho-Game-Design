@@ -10,8 +10,8 @@ public class SwitchPlayer : MonoBehaviour
     private int characterAtual;
     private GameObject character;
     private GameObject player;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,17 +32,25 @@ public class SwitchPlayer : MonoBehaviour
             character = Instantiate(characters[characterAtual], transform.position, transform.rotation);
             tick = 0;
         }
+
+        if (GameController.instance.vida <= 0 || GameController.instance.isVictory)
+        {
+            Destroy(character);
+        }
     }
 
     private void switchCharacter()
     {
-        if (characterAtual < 2)
+        if (player!= null)
         {
-            characterAtual += 1;
-        }
-        else
-        {
-            characterAtual = 0;
+            if (characterAtual < 2)
+            {
+                characterAtual += 1;
+            }
+            else
+            {
+                characterAtual = 0;
+            }
         }
     }
 }
