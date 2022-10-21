@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,9 @@ public class BastãoFace : MonoBehaviour
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
-
+    
     void Update()
     {
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - bastao.transform.position;
@@ -47,7 +48,8 @@ public class BastãoFace : MonoBehaviour
         {
             bastao.rotation = Quaternion.Euler(0f, 0f, lookAngle + addedRot);
         }
-        else
+
+        else if (attacking)
         {
             if(!activateOnce)
             {
