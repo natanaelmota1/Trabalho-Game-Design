@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6518566693115655760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.540464, y: 1.4371092, z: 0}
-  m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7631082648099262981}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7279340632741164245}
   m_Layer: 0
   m_Name: ExplosionBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 2147483647
-  m_ForceMagnitude: 50
+  m_ForceMagnitude: 100
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_ForceSource: 0

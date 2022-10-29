@@ -8,9 +8,10 @@ public class Player : MonoBehaviour
     private Animator playerAnimator;
     private Rigidbody2D playerRb;
     private float moveLimiter = 0.7f;
-    
+    private Transform cameraTransform;
+
     public float speed;
-    
+
     private Vector2 lookDirection;
     public bool lookLeft; // INDICA SE O PERSONAGEM TA OLHANDO PRA ESQUERDA
     private float h, v; // VARIÁVEIS MOVIMENTO HORIZONTAL E VERTICAL
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>(); // ASSOCIA O COMPONENTE A VARIÁVEL
+        cameraTransform = GameObject.FindWithTag("MainCamera").GetComponent<Transform>();
+        
     }
 
     void FixedUpdate()
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
             v *= moveLimiter;
         } 
         playerRb.velocity = new Vector2(h * speed, v * speed);
+        cameraTransform.transform.position = new Vector3(transform.position.x, transform.position.y, cameraTransform.localPosition.z);
     }
 
     void Update()
@@ -58,5 +62,21 @@ public class Player : MonoBehaviour
         float x = transform.localScale.x;
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lacaio"))
+        {
+            GameController.instance.UpdateVida(7);
+        }
+        if (collision.CompareTag("Boss"))
+        {
+            GameController.instance.UpdateVida(14);
+        }
+        if (collision.CompareTag("Bomb"))
+        {
+            GameController.instance.UpdateVida(2);
+        }
     }
 }
